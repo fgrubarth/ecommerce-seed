@@ -3,3 +3,12 @@
   height: 80px;
 }
 
+.ancho{
+  width: 100%;
+}
+
+.carta{
+  width: 350px;
+  height: 400px;
+  margin: 20px;
+}
