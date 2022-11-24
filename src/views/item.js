@@ -1,10 +1,12 @@
-import ItemListContainer from "../components/ItemListContainer";
-import { Layout } from "../components/Layout";
+import ItemDetailContainer from "../components/ItemDetailConteiner";
+import { Layout } from "../components/Layout";   
+import { item } from "../mocks/item.mock"
 
 const ItemView = () => {
+
   return (
     <Layout>
-      <ItemListContainer />
+      <ItemDetailContainer />
     </Layout>
   );
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Item = ({ product }) => {
     return (
       <div >
-        <Link to="#">
+        <Link to={`/item/${product.id}`}>
           <img src={product.imagen} className="carta"  alt={product.nombre} />
         </Link>
         <ul className="d-flex flex-column align-items-center list-group">
