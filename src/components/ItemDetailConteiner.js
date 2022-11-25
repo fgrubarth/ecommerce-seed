@@ -4,23 +4,16 @@ import { useParams } from "react-router-dom";
 import { item as itemMock } from "../mocks/item.mock";
 
 const ItemDetailContainer = () => {
-  const {items} = useParams()
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState([null]);
+  const {id} = useParams()
   
 
   useEffect(() => {
-    new Promise((resolve) => setTimeout(() => resolve(itemMock), 2000)).then(
+    new Promise((resolve) => setTimeout(() => resolve(itemMock.find((item)=>item.id === id)), 1000)).then(
       (data) => {
-      if (items) {
-        const ids = data.find(
-          (product) => product.id === items
-        );
-        setItem(ids);
-      } else {
         setItem(data);
-      }
     });
-  }, [items]);
+  }, [id]);
 
   if (!item) {
     return <p>Loading...</p>;

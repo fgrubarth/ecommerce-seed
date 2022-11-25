@@ -1,11 +1,14 @@
-import Detail from "./Item";
+
 
 const ItemDetail = ({ item }) => {
     return (
       <div>
-      {item.map((item) => (
-        <Detail product={item} />
-      ))}
+      
+        <div>
+        <div>{item.nombre}</div>
+        <img src={item.imagen} alt={item.nombre} />
+      </div>
+      
       </div>
     );
   };

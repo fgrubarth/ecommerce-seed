@@ -1,10 +1,10 @@
-// const Detail = ({ item }) => {
-//     return (
-//       <div>
-//         <div>{item.nombre}</div>
-//         <img src={item.imagen} alt={item.nombre} />
-//       </div>
-//     );
-//   };
+const Detail = ({ item }) => {
+    return (
+      <div>
+        <div>{item.nombre}</div>
+        <img src={item.imagen} alt={item.nombre} />
+      </div>
+    );
+  };
   
-//   export default Detail;
+  export default Detail;
