@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { item as itemMock } from "../mocks/item.mock";
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState([null]);
+  const [item, setItem] = useState(null);
   const {id} = useParams()
   
 

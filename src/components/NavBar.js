@@ -45,9 +45,9 @@ function NavbarComponent({greeting}){
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <a className="navbar-brand" href="#">
+          
             <CardWidget />
-          </a>
+          
         </div>
       </nav>
     
