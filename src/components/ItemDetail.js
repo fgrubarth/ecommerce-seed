@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
-import { useGetItemImg } from "../hooks/useGetItemImg";
+
 import { ItemCount } from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
@@ -10,7 +10,7 @@ const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.cantidad);
   const maxQuantity = currentStock;
-  const img = useGetItemImg(item.img);
+  
   
   
 

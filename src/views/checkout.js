@@ -32,7 +32,7 @@ const CheckoutView = () => {
 
     const total = items
       .map((product) =>
-        getTotalByProduct(product.quantityAdded, product.item.price)
+        getTotalByProduct(product.quantityAdded, product.item.precio)
       )
       .reduce((previousValue, currentValue) => previousValue + currentValue);
 
@@ -59,7 +59,7 @@ const CheckoutView = () => {
       items.forEach((element) => {
         const itemRef = doc(db, "item", element.item.id);
         const dataToUpdate = {
-          stock: element.item.stock - element.quantityAdded,
+          stock: element.item.cantidad - element.quantityAdded,
         };
         updateDoc(itemRef, dataToUpdate)
           .then(() => {
