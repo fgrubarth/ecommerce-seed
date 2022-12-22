@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
+
+import { useGetItem } from "../hooks/useGetItem";
 import ItemDetail from "./ItemDetail";
-import { useParams } from "react-router-dom";
-import { item as itemMock } from "../mocks/item.mock";
+import { Loading } from "./Loading";
 
-const ItemDetailContainer = () => {
-  const [item, setItem] = useState(null);
-  const {id} = useParams()
-  
 
-  useEffect(() => {
-    new Promise((resolve) => setTimeout(() => resolve(itemMock.find((item)=>item.id === id)), 1000)).then(
-      (data) => {
-        setItem(data);
-    });
-  }, [id]);
-
-  if (!item) {
-    return <p>Loading...</p>;
-  }
-
-  return <ItemDetail item={item} />;
+ const ItemDetailContainer = () => {
+  const item = useGetItem();
+  console.log(item);
+  return (
+    <div className="flex justify-center items-center ">
+     {!item ? <Loading/> : <ItemDetail item={item}  />} 
+    </div>
+  );
 };
 
 export default ItemDetailContainer;

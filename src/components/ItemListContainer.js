@@ -1,42 +1,51 @@
-import React from "react";
+// Firebase
 
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ItemList from "./ItemList";
-// Mock
-import { item } from "../mocks/item.mock";
+// Own components
+import { useGetItem } from "../hooks/useGetItem";
+import { ItemList } from "./ItemList";
+import { Loading } from "./Loading";
 
+export const ItemListContainer = () => {
+  const items = useGetItem();
 
-function ItemListContainer(){
-  const { category } = useParams();
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve(item);
-      }, 2000)
-    ).then((data) => {
-      if (category) {
-        const categories = data.filter(
-          (product) => product.category === category
-        );
-        setProducts(categories);
-      } else {
-        setProducts(data);
-      }
-    });
-  }, [category]);
-
-  if (products.length === 0) {
-    return <p>Loading...</p>;
+  if (!items) {
+    return <Loading />;
   }
 
   return (
     <div className="h-full">
-      <ItemList products={products} />
+      <ItemList products={items} />
     </div>
   );
 };
 
-export default ItemListContainer;
+
+//   useEffect(() => {
+//     new Promise((resolve) =>
+//       setTimeout(() => {
+//         resolve(item);
+//       }, 2000)
+//     ).then((data) => {
+//       if (category) {
+//         const categories = data.filter(
+//           (product) => product.category === category
+//         );
+//         setProducts(categories);
+//       } else {
+//         setProducts(data);
+//       }
+//     });
+//   }, [category]);
+
+//   if (products.length === 0) {
+//     return <p>Loading...</p>;
+//   }
+
+//   return (
+//     <div className="h-full">
+//       <ItemList products={products} />
+//     </div>
+//   );
+// };
+
+// export default ItemListContainer;

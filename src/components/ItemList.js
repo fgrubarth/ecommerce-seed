@@ -1,13 +1,11 @@
-import Item from "./Item";
+import { Item } from "./Item";
 
-const ItemList = ({ products }) => {
+export const ItemList = ({ products }) => {
   return (
-    <ul className="d-flex flex-wrap justify-content-center">
+    <div className="d-flex flex-wrap">
       {products.map((product) => (
         <Item product={product} />
       ))}
-    </ul>
+    </div>
   );
 };
-
-export default ItemList;

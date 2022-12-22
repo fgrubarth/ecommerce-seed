@@ -7,8 +7,14 @@
   width: 100%;
 }
 
+.cartaFoto{
+  width: 210px;
+  height: 300px;
+  margin: 20px;
+}
+
 .carta{
-  width: 350px;
-  height: 400px;
+  width: 280px;
+  height: 330px;
   margin: 20px;
 }

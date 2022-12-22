@@ -1,29 +1,21 @@
+
 import { Link } from "react-router-dom";
 
-export const Item = ({ product, quantityAdded }) => {
-  
+export const Item = ({ product }) => {
     return (
-      <div >
-        <Link to={`/item/${product.id}`}>
-          <img src={product.imagen} className="carta"  alt={product.nombre} />
-        </Link>
-        <ul className="d-flex flex-column align-items-center list-group">
-          <li className="list-group-item">{product.nombre}</li>
-          <li className="list-group-item">${product.precio}</li>
-          <li className="list-group-item">Hasta 12 cuotas</li>
-        </ul>
-        <div className="flex flex-col">
-          <hr className="mb-2" />
-          <div className="flex justify-between items-center">
-            <span className="font-bold">${product.price}</span>
-            <span className="text-xs">
-              {quantityAdded ? "Agregados" : "En Stock"}:{" "}
-              {quantityAdded || product.stock}
-            </span>
-          </div>
-        </div>
-      </div>
+  <div className="card carta align-items-center" >
+    <Link to={`/item/${product.id}`}>
+      <img src={product.imagen} className="cartaFoto "  alt={product.nombre} />
+    </Link>
+    <div className="card-body">
+      <h5 className="card-title">{product.nombre}</h5>
+    </div>
+    <ul className="list-group list-group-flush">
+      <li className="list-group-item">${product.precio}</li>
+      <li className="list-group-item">Hasta 12 cuotas</li>
+    </ul>
+  </div>
     );
   };
   
-  export default Item;
+  

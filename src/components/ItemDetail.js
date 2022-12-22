@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/cartContext";
+import { useGetItemImg } from "../hooks/useGetItemImg";
 import { ItemCount } from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
+  const { addItem, isInCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.cantidad);
   const maxQuantity = currentStock;
+  const img = useGetItemImg(item.img);
+  
   
 
   function handleCount(type) {
@@ -16,7 +21,10 @@ const ItemDetail = ({ item }) => {
 
   function handleAdd() {
     if (currentStock < count) alert("No hay suficiente stock de este producto");
-    else setCurrentStock(currentStock - count);
+    else {
+      setCurrentStock(currentStock - count);
+      addItem(item, count);
+    }
   }
 
   function handleCheckout() {
@@ -74,6 +82,7 @@ const ItemDetail = ({ item }) => {
                 Agregar al carrito
               </button>
               <button
+                disabled={!isInCart(item.id)}
                 onClick={handleCheckout}
                 className="w-4/5 bg-gray-200 px-4 py-2 mt-2 rounded disabled:opacity-40 "
               >

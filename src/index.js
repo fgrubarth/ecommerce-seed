@@ -5,15 +5,34 @@ import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { router } from "./router";
+import { CartContextProvider } from "./context/cartContext";
+
+
+import { initializeApp } from "firebase/app";
+
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC3Hy9mpXei8-ZtXC5Sw2QuhgH6168fZOU",
+  authDomain: "ecommerce-seed-e8191.firebaseapp.com",
+  projectId: "ecommerce-seed-e8191",
+  storageBucket: "ecommerce-seed-e8191.appspot.com",
+  messagingSenderId: "453043308384",
+  appId: "1:453043308384:web:ce9c1067ab967095ce8005"
+};
+
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartContextProvider>
+      <RouterProvider router={router} />
+    </CartContextProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
