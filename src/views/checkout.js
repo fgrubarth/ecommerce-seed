@@ -15,7 +15,7 @@ import {
 const CheckoutView = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [updatingProducts, setUpdatingProducts] = useState(false);
-  const { productsAdded: items, clear, totalAmount } = useContext(CartContext);
+  const { productsAdded: item, clear, totalAmount } = useContext(CartContext);
   const navigate = useNavigate();
 
   const getTotalByProduct = (quantity, price) => {
@@ -30,7 +30,7 @@ const CheckoutView = () => {
 
     setIsLoading(true);
 
-    const total = items
+    const total = item
       .map((product) =>
         getTotalByProduct(product.quantityAdded, product.item.precio)
       )
@@ -38,7 +38,7 @@ const CheckoutView = () => {
 
     const order = {
       buyer: { name, phone, email },
-      items,
+      item,
       total,
     };
     const db = getFirestore();
@@ -56,7 +56,7 @@ const CheckoutView = () => {
     if (updatingProducts) {
       const db = getFirestore();
 
-      items.forEach((element) => {
+      item.forEach((element) => {
         const itemRef = doc(db, "item", element.item.id);
         const dataToUpdate = {
           stock: element.item.cantidad - element.quantityAdded,
@@ -72,7 +72,7 @@ const CheckoutView = () => {
       });
     }
    
-  }, [updatingProducts]);
+  }, [updatingProducts, clear, item, navigate]);
 
   return (
     <Layout>
