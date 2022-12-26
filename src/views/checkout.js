@@ -101,7 +101,7 @@ const CheckoutView = () => {
         </span>
         <button
           type="submit"
-          className="rounded-lg p-2 bg-gray-800 text-black disabled:opacity-50"
+          className="rounded-lg p-2 bg-gray-800 text-black disabled:opacity-50 margen"
           disabled={isLoading}
         >
           Finalizar

@@ -6,7 +6,7 @@ export const TrashWidget = ({ itemId }) => {
   return (
     <button
       onClick={() => removeItem(itemId)}
-      className="absolute flex justify-center items-center "
+      className="eliminar "
     >
      Eliminar producto
     </button>

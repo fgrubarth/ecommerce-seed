@@ -10,12 +10,9 @@ const CartWidget = () => {
   return (
     <div>
       <Link to="/cart" className="relative">
-        <button
-          type="button"
-          className="bg-gray-800  "
-        >
-         <AiOutlineShoppingCart />
-        </button>
+        
+         <AiOutlineShoppingCart className="tarjeta text-white" />
+        
         {count > 0 && (
           <span className="text-white ">
             {count}

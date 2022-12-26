@@ -19,7 +19,7 @@ const CartView = () => {
       <div className="flex flex-col max-w-[50%]">
         {items.length === 0 ? (
           <div className="flex flex-col items-center justify-center">
-            <img src={EmptyCart} alt="Empty Cart" className="w-44 h-44" />
+            <img src={EmptyCart} alt="Empty Cart" className="carro" />
             <h1 className="text-2xl">No has agregado productos</h1>
             <button
               onClick={() => navigate("/")}
@@ -35,7 +35,7 @@ const CartView = () => {
                 const quantityAdded = product.quantityAdded;
 
                 return (
-                  <div className="relative">
+                  <div className="d-flex">
                     <Item
                       product={product.item}
                       quantityAdded={quantityAdded}
