@@ -25,9 +25,15 @@ function NavbarComponent(){
             Productos
           </Dropdown.Toggle>
           <Dropdown.Menu >
-            <Dropdown.Item><Link to="/category/Silver River" className="text-decoration-none"> Silver River Seeds</Link></Dropdown.Item>
-            <Dropdown.Item>< Link to="/category/R-Kiem" className="text-decoration-none">R-Kiem Seeds</Link></Dropdown.Item>
-            <Dropdown.Item ><Link to="/category/Delicious" className="text-decoration-none">Delicious Seeds</Link></Dropdown.Item>
+            <Dropdown.Item as={Link} to="/category/Silver River">
+               Silver River Seeds
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/category/R-Kiem">
+              R-Kiem Seeds
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/category/Delicious">
+              Delicious Seeds
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
