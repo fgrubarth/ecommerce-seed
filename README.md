@@ -8,7 +8,8 @@ Proyecto final del curso de react para coderHouse
 En este proyecto se creó una aplicación tipo e-commerce para empezar a comercionalizar semillas entre amigos. El proyecto se generó utilizando React Js.
 
 
-Podes ver el sitio web aquí 
+Podes ver el sitio web aquí https://shiva-seed.netlify.app/ 
+
 
 #Construido con 
 ------------------------
@@ -21,9 +22,12 @@ Podes ver el sitio web aquí
 Se implementó Firebase  para almacenar los productos mostrados y para recibir los datos de compra, tales como:
 
 *Datos que ingresa el usuario a través de inputs en el checkout.
+
 *Fecha de realización de la compra.
+
 *Precio total de la compra.
-*Detalle de productos comprados con sus cantidades y características.
+
+
 #Autor
 ----------------------------- 
 Federico Rubarth
