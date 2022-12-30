@@ -34,7 +34,7 @@ function Footer(){
                         </div>
                     </div>
                 </div>
-                <p class="d-flex justify-content-end">Tienda creada por  <a href="https://www.instagram.com/fgrubarth/" target="_blank" rel="noreferrer" className="text-decoration-none text-white ">@fgrubarth</a></p>
+                <p className="d-flex justify-content-end">Tienda creada por  <a href="https://www.instagram.com/fgrubarth/" target="_blank" rel="noreferrer" className="text-decoration-none text-white ">@fgrubarth</a></p>
             </footer>
         </div>
     );

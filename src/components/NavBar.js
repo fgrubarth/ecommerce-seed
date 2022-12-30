@@ -10,13 +10,13 @@ function NavbarComponent(){
     return(
 <div>
   <nav className="navbar bg-white ancho">
-    <div class="container-fluid d-flex justify-content-center ">
+    <div className="container-fluid d-flex justify-content-center ">
       <Link  to="/" className="navbar-brand pe-5"><img src={logoShiva} className="logo" alt="logo shivaseed" /></Link>
     </div>
   </nav>
   <nav className="navbar bg-success">
     <div className="container justify-content-center">
-      <button type="button" class="btn btn-success">
+      <button type="button" className="btn btn-success">
         <Link to="/" className="navbar-brand text-white">Home</Link>
       </button>
       <div className="pe-5">
