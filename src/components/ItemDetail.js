@@ -34,7 +34,7 @@ const ItemDetail = ({ item }) => {
   return (
       <div>
       
-        <div className="d-flex">
+        <div className="d-flex flex-wrap">
           <img className="ms-5 img-fluid carta" src={item.imagen} alt={item.nombre} />
           <div className="d-flex flex-column text-start ms-5 p-2 ">
             <div className="fs-2 fw-bold">{item.nombre}</div>
@@ -51,27 +51,37 @@ const ItemDetail = ({ item }) => {
               <div>{item.detalles.detalle}</div>
                       
             </div>
-            <div className="row flex-nowrap align-items-center">
-              <div className="col-lg-3 ">Paquetes de semillas</div>
-              <div className="col-sm-2">Precio por semilla</div>
-              <div className="col-sm-2">Precio por paquete</div>
-              <div className="col-sm-3 col-md-4 col-lg-3">Cantidad de paquetes</div>
+            <div className="d-flex flex-wrap align-items-center">
+              <div className="detalle d-flex flex-column flex-wrap">
+                <div className="col-lg-3 ">Paquetes de semillas</div>
+                <div className="col-sm-5 col-md-4 col-lg-3">Pack x3</div>
+              </div>
+              <div className="detalle">
+                <div className="col-sm-2">Precio por semilla</div>
+                <div className=" col-sm-2 ">${item.precio/3}</div>
+              </div>
+              <div className="detalle">
+                <div className="col-sm-2">Precio por paquete</div>
+                <div className=" col-sm-2  ">${item.precio}</div>
+              </div>
+              <div className="detalle">
+                <div className="col-sm-3 col-md-4 col-lg-3">Cantidad de paquetes</div>
+                <div>
+                  {currentStock > 0 ? (
+                    <ItemCount count={count} handleCount={handleCount} />
+                  ) : (
+                    <span className="text-red-500 mt-10">Sin stock</span>
+                  )}
+                </div>
+              </div>
             </div>
 
             <div className="row flex-nowrap align-items-center">
-              <div className="col-sm-5 col-md-4 col-lg-3">Pack x3</div>
-              <div className=" col-sm-2 ">${item.precio/3}</div>
-              <div className=" col-sm-2  ">${item.precio}</div>
+              
+              
+              
             
-              <div className="">
               
-                {currentStock > 0 ? (
-                  <ItemCount count={count} handleCount={handleCount} />
-                ) : (
-                  <span className="text-red-500 mt-10">Sin stock</span>
-                )}
-              
-              </div>
             </div>
             <div className="w-full flex flex-col items-center">
               <button
