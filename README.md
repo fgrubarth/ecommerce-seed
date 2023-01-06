@@ -7,6 +7,7 @@ Proyecto final del curso de react para coderHouse
 -----------------------------
 En este proyecto se creó una aplicación tipo e-commerce para empezar a comercionalizar semillas entre amigos. El proyecto se generó utilizando React Js.
 
+![GIF](https://user-images.githubusercontent.com/107072535/210099344-b8ea5c25-4587-471b-a57a-debf5b56f4a1.gif)
 
 Podes ver el sitio web aquí https://shiva-seed.netlify.app/ 
 
