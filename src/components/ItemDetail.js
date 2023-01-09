@@ -81,7 +81,7 @@ const ItemDetail = ({ item }) => {
                 onClick={handleCheckout}
                 className="border border-success rounded-pill px-4 py-2 "
               >
-                Finalizar Compra
+                Ver carrito
               </button>
             </div>
             <span>

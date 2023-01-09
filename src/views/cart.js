@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import EmptyCart from "../imagenes/empty.png";
-import { Item } from "../components/Item";
 import { Layout } from "../components/Layout";
 import { TrashWidget } from "../components/TrashWidget";
 import { CartContext } from "../context/cartContext";
+
 
 const CartView = () => {
   const navigate = useNavigate();
@@ -12,6 +12,9 @@ const CartView = () => {
 
   const goToCheckout = () => {
     navigate("/checkout");
+  };
+  const goHome = () => {
+    navigate("/");
   };
 
   return (
@@ -30,34 +33,44 @@ const CartView = () => {
           </div>
         ) : (
           <div>
-            <div className="flex gap-4">
+            <h1 className="titulo-cart">Producto añadido correctamente a su carrito de compra</h1>
               {items.map((product) => {
                 const quantityAdded = product.quantityAdded;
-
                 return (
-                  <div className="d-flex">
-                    <Item
-                      product={product.item}
-                      quantityAdded={quantityAdded}
-                    />
-                    <TrashWidget itemId={product.item.id} />
+                  <div>
+                    
+                   <div className="d-flex">
+                      <img className="img-cart me-4" src={product.item.imagen} alt={product.item.nombre} />
+                     <div>
+                       <p>{product.item.nombre}</p>
+                       <p>Cantidad: {quantityAdded}</p>
+                       <p>Pack x3</p>
+                     </div>
+                     <div>
+                      <TrashWidget itemId={product.item.id} />
+                     </div>
+                    </div>
                   </div>
                 );
               })}
-            </div>
-            <div className="flex justify-end mt-4">
-              <div className="flex flex-col">
-                <span>
-                  Total a pagar: <strong>${totalAmount}</strong>
-                </span>
-                <button
-                  onClick={goToCheckout}
-                  className="rounded-lg p-2 bg-gray-800 text-black"
-                >
-                  Ir al Checkout
-                </button>
-              </div>
-            </div>
+              <div className="mt-4">
+                        <div className="">
+                          <span>
+                            Total a pagar: <strong>${totalAmount}</strong>
+                          </span>
+                          <button
+                            onClick={goToCheckout}
+                            className="border border-success rounded-pill px-4 py-2 m-2">
+                              Finalizar compra
+                          </button>
+                          O
+                          <button
+                            onClick={goHome}
+                            className="border border-success rounded-pill px-4 py-2 m-2">
+                              Seguir comprando
+                          </button>
+                        </div>
+                      </div>
           </div>
         )}
       </div>
