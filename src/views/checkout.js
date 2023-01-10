@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { CartContext } from "../context/cartContext";
+import { TrashWidget } from "../components/TrashWidget";
 
 // firebase
 import {
@@ -96,15 +97,34 @@ const CheckoutView = () => {
             required
           />
         </div>
+        {item.map((product) => {
+                const quantityAdded = product.quantityAdded;
+                return (
+                  <div>
+                    
+                   <div className="d-flex">
+                      <img className="img-cart me-4 " src={product.item.imagen} alt={product.item.nombre} />
+                     <div className="informacion-cart">
+                       <p>{product.item.nombre}</p>
+                       <p>Cantidad: {quantityAdded}</p>
+                       <p>Pack x3</p>
+                     </div>
+                     <div>
+                      <TrashWidget itemId={product.item.id} />
+                     </div>
+                    </div>
+                  </div>
+                );
+              })}
         <span>
           Total a pagar: <strong>${totalAmount}</strong>
         </span>
         <button
           type="submit"
-          className="rounded-lg p-2 bg-gray-800 text-black disabled:opacity-50 margen"
+          className="border border-success rounded-pill px-4 py-2 m-2"
           disabled={isLoading}
         >
-          Finalizar
+          Comprar
         </button>
       </form>
     </Layout>

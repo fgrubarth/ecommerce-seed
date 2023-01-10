@@ -41,7 +41,7 @@ const CartView = () => {
                     
                    <div className="d-flex">
                       <img className="img-cart me-4" src={product.item.imagen} alt={product.item.nombre} />
-                     <div>
+                     <div className="informacion-cart">
                        <p>{product.item.nombre}</p>
                        <p>Cantidad: {quantityAdded}</p>
                        <p>Pack x3</p>

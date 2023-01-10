@@ -93,6 +93,7 @@
   height: 100px;
   margin-left: 5px;
   margin-bottom: 50px;
+  border-radius: 25%;
 }
 
 .titulo-cart{
@@ -101,4 +102,11 @@
     font-family: Roboto Condensed;
     font-weight: 700;
     color: forestgreen;
+}
+
+.informacion-cart{
+  background-color:  aliceblue;
+  padding: 10px;
+  border-radius: 1%;
+  margin-top: 5px;
 }
