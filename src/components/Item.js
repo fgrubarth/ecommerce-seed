@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Item = ({ product }) => {
     return (
-  <div className="card carta align-items-center" >
+  <div className="card carta align-items-center " >
     <Link to={`/item/${product.id}`}>
       <img src={product.imagen} className="cartaFoto "  alt={product.nombre} />
     </Link>

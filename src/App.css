@@ -107,6 +107,12 @@
 .informacion-cart{
   background-color:  aliceblue;
   padding: 10px;
-  border-radius: 1%;
+  border-radius: 10%;
   margin-top: 5px;
+}
+
+.formulario {
+  grid-template-columns: 1fr ;
+  grid-gap: 1.25rem;
+  margin: 50px;
 }

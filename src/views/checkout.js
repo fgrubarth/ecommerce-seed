@@ -77,55 +77,56 @@ const CheckoutView = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleFinalizePurchase} className="flex flex-col w-1/2">
-        <div className="flex flex-col">
-          <input
-            className="h-8 pl-4 mb-4 rounded-md"
-            placeholder="Nombre Completo"
-            required
-          />
-          <input
-            className="h-8 pl-4 mb-4 rounded-md"
-            placeholder="Numero de Telefono"
-            type="number"
-            required
-          />
-          <input
-            className="h-8 pl-4 mb-4 rounded-md"
-            placeholder="Email"
-            type={"email"}
-            required
-          />
+      <form onSubmit={handleFinalizePurchase} className="d-flex  justify-content-center">
+      
+        <div className="formulario ">
+          <p className="fs-2 fw-bold">1. INFORMACION</p>
+          <p>
+            <label className="me-2">Nombre</label>
+            <input type="text" placeholder="Nombre Completo" name="nombre" required />
+          </p>
+          <p>
+            <label className="me-3">Correo</label>
+            <input type="email" placeholder="Email" name="email" required />
+          </p>
+          <p>
+            <label className="me-2">Teléfono</label>
+            <input type="text" placeholder="Numero de Telefono" name="teléfono" required />
+          </p>
         </div>
-        {item.map((product) => {
-                const quantityAdded = product.quantityAdded;
-                return (
-                  <div>
-                    
-                   <div className="d-flex">
-                      <img className="img-cart me-4 " src={product.item.imagen} alt={product.item.nombre} />
-                     <div className="informacion-cart">
-                       <p>{product.item.nombre}</p>
-                       <p>Cantidad: {quantityAdded}</p>
-                       <p>Pack x3</p>
-                     </div>
-                     <div>
-                      <TrashWidget itemId={product.item.id} />
-                     </div>
-                    </div>
-                  </div>
-                );
-              })}
-        <span>
-          Total a pagar: <strong>${totalAmount}</strong>
-        </span>
-        <button
-          type="submit"
-          className="border border-success rounded-pill px-4 py-2 m-2"
-          disabled={isLoading}
-        >
-          Comprar
-        </button>
+        <div className="ms-5 mt-5  ">
+          <p className="fs-2 fw-bold">2. TOTAL</p>         
+            <div className="d-flex flex-wrap">
+              {item.map((product) => {
+                      const quantityAdded = product.quantityAdded;
+                      return (
+                        
+                         <div className="d-flex">
+                            <img className="img-cart me-4 " src={product.item.imagen} alt={product.item.nombre} />
+                           <div className="informacion-cart">
+                             <p>{product.item.nombre}</p>
+                             <p>Cantidad: {quantityAdded}</p>
+                             <p>Pack x3</p>
+                           </div>
+                           <div>
+                            <TrashWidget itemId={product.item.id} />
+                           </div>
+                          </div>
+                        
+                      );
+                    })}
+            </div>
+          <span>
+            Total a pagar: <strong>${totalAmount}</strong>
+          </span>
+          <button
+            type="submit"
+            className="border border-success rounded-pill px-4 py-2 m-2"
+            disabled={isLoading}
+          >
+            Comprar
+          </button>
+        </div>
       </form>
     </Layout>
   );

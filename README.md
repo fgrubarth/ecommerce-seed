@@ -9,7 +9,7 @@ En este proyecto se creó una aplicación tipo e-commerce para empezar a comerci
 
 ![GIF](https://user-images.githubusercontent.com/107072535/210099344-b8ea5c25-4587-471b-a57a-debf5b56f4a1.gif)
 
-Podes ver el sitio web aquí https://shiva-seed.netlify.app/ 
+Podes ver el sitio web <a href="https://shiva-seed.netlify.app" target="_blank">aquí</a>  
 
 
 #Construido con 
