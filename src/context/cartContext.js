@@ -1,9 +1,11 @@
 import { createContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
   const [productsAdded, setProductsAdded] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
+  const { cart } = useParams();
 
   useEffect(() => {
     const amount = productsAdded
@@ -11,6 +13,17 @@ export const CartContextProvider = ({ children }) => {
       .reduce((partialSum, a) => partialSum + a, 0);
     setTotalAmount(amount);
   }, [productsAdded]);
+
+  useEffect(() => {
+		const todos = JSON.parse(localStorage.getItem('productsAdded'));
+		if (todos) {
+			setProductsAdded(todos);
+		}
+	}, [cart]);
+
+  useEffect(() => {
+		localStorage.setItem('productsAdded', JSON.stringify(productsAdded));
+	}, [productsAdded]);
 
   function addItem(item, quantity) {
     const isAlreadyAdded = isInCart(item.id);

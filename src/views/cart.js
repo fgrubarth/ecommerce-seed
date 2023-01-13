@@ -37,7 +37,7 @@ const CartView = () => {
               {items.map((product) => {
                 const quantityAdded = product.quantityAdded;
                 return (
-                  <div>
+                  <div key={product.item.id}>
                     
                    <div className="d-flex">
                       <img className="img-cart me-4" src={product.item.imagen} alt={product.item.nombre} />

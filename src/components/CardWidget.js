@@ -16,6 +16,7 @@ const CartWidget = () => {
         {count > 0 && (
           <span className="text-white ">
             {count}
+            {console.log(productsAdded)}
           </span>
         )}
       </Link>

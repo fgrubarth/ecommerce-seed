@@ -100,8 +100,7 @@ const CheckoutView = () => {
               {item.map((product) => {
                       const quantityAdded = product.quantityAdded;
                       return (
-                        
-                         <div className="d-flex">
+                         <div key={product.item.id} className="d-flex">
                             <img className="img-cart me-4 " src={product.item.imagen} alt={product.item.nombre} />
                            <div className="informacion-cart">
                              <p>{product.item.nombre}</p>
@@ -111,8 +110,7 @@ const CheckoutView = () => {
                            <div>
                             <TrashWidget itemId={product.item.id} />
                            </div>
-                          </div>
-                        
+                         </div>
                       );
                     })}
             </div>
