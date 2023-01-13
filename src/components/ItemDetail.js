@@ -12,8 +12,6 @@ const ItemDetail = ({ item }) => {
   const maxQuantity = currentStock;
   
   
-  
-
   function handleCount(type) {
     if (type === "plus" && count < maxQuantity) setCount(count + 1);
     if (type === "minus" && count > 1) setCount(count - 1);

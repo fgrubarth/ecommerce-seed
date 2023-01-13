@@ -1,12 +1,15 @@
 import { createContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
-  const [productsAdded, setProductsAdded] = useState([]);
+  const [productsAdded, setProductsAdded] = useState ( () => {
+    const savedItem = localStorage.getItem("productsAdded");
+    const parsedItem = JSON.parse(savedItem);
+    return parsedItem || [];
+   });
   const [totalAmount, setTotalAmount] = useState(0);
-  const { cart } = useParams();
-
+  
   useEffect(() => {
     const amount = productsAdded
       .map((product) => parseInt(product.item.precio) * product.quantityAdded)
@@ -14,15 +17,12 @@ export const CartContextProvider = ({ children }) => {
     setTotalAmount(amount);
   }, [productsAdded]);
 
-  useEffect(() => {
-		const todos = JSON.parse(localStorage.getItem('productsAdded'));
-		if (todos) {
-			setProductsAdded(todos);
-		}
-	}, [cart]);
 
   useEffect(() => {
 		localStorage.setItem('productsAdded', JSON.stringify(productsAdded));
+    if (productsAdded){
+      JSON.parse(localStorage.getItem('productsAdded'))
+    }
 	}, [productsAdded]);
 
   function addItem(item, quantity) {
