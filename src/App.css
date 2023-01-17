@@ -117,3 +117,13 @@
   grid-gap: 1.25rem;
   margin: 50px;
 }
+
+footer{
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .footer {
+  flex-direction: column-reverse;
+  }
+}
