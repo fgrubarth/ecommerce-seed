@@ -19,14 +19,13 @@ const CartView = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col max-w-[50%]">
         {items.length === 0 ? (
-          <div className="flex flex-col items-center justify-center">
+          <div className="d-flex flex-column justify-content-center align-items-center ">
             <img src={EmptyCart} alt="Empty Cart" className="carro" />
-            <h1 className="text-2xl">No has agregado productos</h1>
+            <p className="p-3 mb-2 bg-danger text-white">No has agregado productos al carrito</p>
             <button
               onClick={() => navigate("/")}
-              className="rounded-lg p-2 bg-gray-800 text-black mt-4"
+              className="border border-success rounded-pill px-4 py-2 m-3 mb-5"
             >
               Ir al Inicio
             </button>
@@ -34,25 +33,24 @@ const CartView = () => {
         ) : (
           <div>
             <h1 className="titulo-cart">Producto añadido correctamente a su carrito de compra</h1>
-              {items.map((product) => {
-                const quantityAdded = product.quantityAdded;
-                return (
-                  <div key={product.item.id}>
-                    
-                   <div className="d-flex">
-                      <img className="img-cart me-4" src={product.item.imagen} alt={product.item.nombre} />
-                     <div className="informacion-cart">
-                       <p>{product.item.nombre}</p>
-                       <p>Cantidad: {quantityAdded}</p>
-                       <p>Pack x3</p>
-                     </div>
-                     <div>
-                      <TrashWidget itemId={product.item.id} />
-                     </div>
-                    </div>
-                  </div>
-                );
-              })}
+              <div className="d-flex flex-wrap mt-5">
+                {items.map((product) => {
+                  const quantityAdded = product.quantityAdded;
+                  return (                 
+                     <div key={product.item.id} className="d-flex m-1">
+                        <img className="img-cart me-4" src={product.item.imagen} alt={product.item.nombre} />
+                       <div className="informacion-cart">
+                         <p>{product.item.nombre}</p>
+                         <p>Cantidad: {quantityAdded}</p>
+                         <p>Pack x3</p>
+                       </div>
+                       <div>
+                        <TrashWidget itemId={product.item.id} />
+                       </div>
+                      </div>
+                  );
+                })}
+              </div>
               <div className="mt-4">
                         <div className="">
                           <span>
@@ -73,7 +71,7 @@ const CartView = () => {
                       </div>
           </div>
         )}
-      </div>
+      
     </Layout>
   );
 };

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
+
 
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
@@ -24,6 +24,7 @@ export const CartContextProvider = ({ children }) => {
       JSON.parse(localStorage.getItem('productsAdded'))
     }
 	}, [productsAdded]);
+  
 
   function addItem(item, quantity) {
     const isAlreadyAdded = isInCart(item.id);
@@ -50,6 +51,8 @@ export const CartContextProvider = ({ children }) => {
       prevState.filter((product) => product.item.id !== itemId)
     );
   }
+
+ 
 
   function clear() {
     setProductsAdded([]);
