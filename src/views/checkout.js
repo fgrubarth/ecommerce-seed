@@ -77,10 +77,10 @@ const CheckoutView = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleFinalizePurchase} className="d-flex  justify-content-center">
+      <form onSubmit={handleFinalizePurchase} className="d-flex justify-content-center">
       
         <div className="formulario ">
-          <p className="fs-2 fw-bold">1. INFORMACION</p>
+          <p className="fs-4 fw-bold">1. INFORMACION</p>
           <p>
             <label className="me-2">Nombre</label>
             <input type="text" placeholder="Nombre Completo" name="nombre" required />
@@ -95,7 +95,7 @@ const CheckoutView = () => {
           </p>
         </div>
         <div className="ms-5 mt-5  ">
-          <p className="fs-2 fw-bold">2. TOTAL</p>         
+          <p className="fs-4 fw-bold">2. TOTAL</p>         
             <div className="d-flex flex-wrap">
               {item.map((product) => {
                       const quantityAdded = product.quantityAdded;
